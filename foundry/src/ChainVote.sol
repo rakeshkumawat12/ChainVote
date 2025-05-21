@@ -76,11 +76,9 @@ contract ChainVote {
         return polls.length;
     }
 
-    function getCandidates(uint256 _pollId)
-        external
-        view
-        returns (Candidate[] memory)
-    {
+    function getCandidates(
+        uint256 _pollId
+    ) external view returns (Candidate[] memory) {
         require(_pollId < polls.length, "Invalid poll ID");
 
         // Create memory array for candidates
@@ -95,11 +93,9 @@ contract ChainVote {
         return candidatesList;
     }
 
-    function getWinner(uint256 _pollId)
-        external
-        view
-        returns (string memory winnerName, uint256 winnerVotes)
-    {
+    function getWinner(
+        uint256 _pollId
+    ) external view returns (string memory winnerName, uint256 winnerVotes) {
         require(_pollId < polls.length, "Invalid poll ID");
         Poll storage poll = polls[_pollId];
         require(block.timestamp >= poll.endTime, "Voting still in progress");
@@ -118,7 +114,9 @@ contract ChainVote {
         winnerVotes = poll.candidates[winnerIndex].voteCount;
     }
 
-    function getPollDetails(uint256 _pollId)
+    function getPollDetails(
+        uint256 _pollId
+    )
         external
         view
         returns (
@@ -171,5 +169,13 @@ contract ChainVote {
             endTimes[i] = polls[i].endTime;
             creators[i] = polls[i].creator;
         }
+    }
+
+    function hasUserVoted(
+        uint256 _pollId,
+        address _user
+    ) external view returns (bool) {
+        require(_pollId < polls.length, "Invalid poll ID");
+        return polls[_pollId].hasVoted[_user];
     }
 }

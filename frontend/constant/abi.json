@@ -1,0 +1,202 @@
+[
+  {
+    "type": "function",
+    "name": "createPoll",
+    "inputs": [
+      { "name": "_pollName", "type": "string", "internalType": "string" },
+      {
+        "name": "_candidateNames",
+        "type": "string[]",
+        "internalType": "string[]"
+      },
+      {
+        "name": "_durationInMinutes",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "getAllPollsMetadata",
+    "inputs": [],
+    "outputs": [
+      { "name": "names", "type": "string[]", "internalType": "string[]" },
+      {
+        "name": "startTimes",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      },
+      {
+        "name": "endTimes",
+        "type": "uint256[]",
+        "internalType": "uint256[]"
+      },
+      { "name": "creators", "type": "address[]", "internalType": "address[]" }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getCandidates",
+    "inputs": [
+      { "name": "_pollId", "type": "uint256", "internalType": "uint256" }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple[]",
+        "internalType": "struct ChainVote.Candidate[]",
+        "components": [
+          { "name": "name", "type": "string", "internalType": "string" },
+          {
+            "name": "voteCount",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getPollDetails",
+    "inputs": [
+      { "name": "_pollId", "type": "uint256", "internalType": "uint256" }
+    ],
+    "outputs": [
+      { "name": "name", "type": "string", "internalType": "string" },
+      { "name": "startTime", "type": "uint256", "internalType": "uint256" },
+      { "name": "endTime", "type": "uint256", "internalType": "uint256" },
+      { "name": "creator", "type": "address", "internalType": "address" },
+      {
+        "name": "candidates",
+        "type": "tuple[]",
+        "internalType": "struct ChainVote.Candidate[]",
+        "components": [
+          { "name": "name", "type": "string", "internalType": "string" },
+          {
+            "name": "voteCount",
+            "type": "uint256",
+            "internalType": "uint256"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getPollsLength",
+    "inputs": [],
+    "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getWinner",
+    "inputs": [
+      { "name": "_pollId", "type": "uint256", "internalType": "uint256" }
+    ],
+    "outputs": [
+      { "name": "winnerName", "type": "string", "internalType": "string" },
+      { "name": "winnerVotes", "type": "uint256", "internalType": "uint256" }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "hasUserVoted",
+    "inputs": [
+      { "name": "_pollId", "type": "uint256", "internalType": "uint256" },
+      { "name": "_user", "type": "address", "internalType": "address" }
+    ],
+    "outputs": [{ "name": "", "type": "bool", "internalType": "bool" }],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "polls",
+    "inputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+    "outputs": [
+      { "name": "name", "type": "string", "internalType": "string" },
+      { "name": "startTime", "type": "uint256", "internalType": "uint256" },
+      { "name": "endTime", "type": "uint256", "internalType": "uint256" },
+      { "name": "creator", "type": "address", "internalType": "address" }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "vote",
+    "inputs": [
+      { "name": "_pollId", "type": "uint256", "internalType": "uint256" },
+      {
+        "name": "_candidateIndex",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "event",
+    "name": "PollCreated",
+    "inputs": [
+      {
+        "name": "pollId",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
+      },
+      {
+        "name": "pollName",
+        "type": "string",
+        "indexed": false,
+        "internalType": "string"
+      },
+      {
+        "name": "startTime",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      },
+      {
+        "name": "endTime",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "Voted",
+    "inputs": [
+      {
+        "name": "pollId",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
+      },
+      {
+        "name": "voter",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "candidateIndex",
+        "type": "uint256",
+        "indexed": true,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  }
+]
