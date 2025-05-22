@@ -90,19 +90,27 @@ export default function PollDetail() {
             ))}
           </div>
 
-          {hasVoted && <p className="text-green-600 mt-4">You already voted!</p>}
+          {hasVoted && <p className="text-green-600 mt-4">Voted, Done!</p>}
+
+          {isPollEnded && (
+            <p className="text-xl  text-black my-3">🕒 Voting Closed</p>
+          )}
+
           {isPollEnded && (
             <button
-              className="bg-green-600 text-white px-4 py-2 mt-6 rounded"
+              className="bg-green-600 text-white px-4 py-2 mt-6 rounded cursor-pointer"
               onClick={fetchWinner}
             >
               Show Winner
             </button>
           )}
 
+
           {winner && (
-            <p className="text-xl mt-4 text-blue-800">🏆 Winner: {winner}</p>
+            <p className="text-xl mt-4 text-black">🏆 Winner: {winner}</p>
           )}
+
+          
         </>
       ) : (
         <p>Loading poll details...</p>

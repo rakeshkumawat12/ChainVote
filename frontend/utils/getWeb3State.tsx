@@ -6,7 +6,7 @@ import axios from "axios";
 export const getWeb3State = async () => {
   try {
     if (!window.ethereum) {
-      throw new Error("Metamask is not installed");
+      alert("Metamask is not installed");
     }
     const accounts = await window.ethereum.request({
       method: "eth_requestAccounts",
@@ -26,15 +26,7 @@ export const getWeb3State = async () => {
     const message =
       "Welcome to ChainVote Dapp. You accept our terms and condition.";
     const signature = await signer.signMessage(message);
-    const dataSignature = {
-      signature,
-    };
-
-    // const res = await axios.post(
-    //   `http://localhost:3000/api/authentication?accountAddress=${selectedAccount}`,
-    //   dataSignature
-    // );
-    // localStorage.setItem("token", res.data.token);
+  
 
     const contractInstance = new ethers.Contract(contractAddress, abi, signer);
     
