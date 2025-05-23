@@ -76,7 +76,8 @@ export default function CreatePoll() {
         type="number"
         placeholder="Duration in minutes"
         value={duration}
-        onChange={(e) => setDuration(parseInt(e.target.value))}
+        min={1}
+        onChange={(e) => setDuration(Math.max(1, parseInt(e.target.value) || 1))}
         className="border border-gray-300  bg-white  text-zinc-900  p-3 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
 

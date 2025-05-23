@@ -2,7 +2,7 @@
 
 import { useWeb3Context } from "@/context/useWeb3Context";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 type Poll = {
   name: string;
@@ -23,7 +23,7 @@ export default function Home() {
     poll.name.toLowerCase().includes(searchPoll.toLowerCase())
   );
 
-  const fetchPolls = useCallback(async () => {
+  const fetchPolls = async () => {
     try {
       const [names, startTimes, endTimes, creators] =
         await contractInstance.getAllPollsMetadata();
@@ -39,13 +39,13 @@ export default function Home() {
     } catch (error) {
       console.error("Error fetching polls:", error);
     }
-  }, [contractInstance]);
+  };
 
   useEffect(() => {
-  if (contractInstance) {
-    fetchPolls();
-  }
-}, [contractInstance, fetchPolls]);
+    if (contractInstance) {
+      fetchPolls();
+    }
+  }, [contractInstance]);
 
   const router = useRouter();
 

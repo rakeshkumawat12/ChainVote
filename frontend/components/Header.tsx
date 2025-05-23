@@ -1,17 +1,16 @@
 "use client";
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { useEffect } from "react";
 import { useWeb3Context } from "@/context/useWeb3Context";
 import { useRouter } from "next/navigation";
 
 declare global {
   interface Window {
-    ethereum?: {
-      request: (args: { method: string }) => Promise<any>;
-      on?: (eventName: string, callback: (...args: any[]) => void) => void;
-    };
+    ethereum?: any;
   }
-} 
+}
 
 export default function Header() {
   const { handleWallet, web3State } = useWeb3Context();

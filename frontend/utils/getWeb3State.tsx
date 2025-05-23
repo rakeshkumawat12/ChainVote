@@ -1,10 +1,11 @@
 import { ethers } from "ethers";
 import abi from "@/constant/abi.json";
 
-export const getWeb3State = async () => {
+export const getWeb3State:any = async () => {
   try {
     if (!window.ethereum) {
       alert("Metamask is not installed");
+      return;
     }
     const accounts = await window.ethereum.request({
       method: "eth_requestAccounts",
