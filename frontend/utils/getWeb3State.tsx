@@ -1,7 +1,5 @@
 import { ethers } from "ethers";
 import abi from "@/constant/abi.json";
-import axios from "axios";
-// import {toast} from "react-hot-toast"
 
 export const getWeb3State = async () => {
   try {

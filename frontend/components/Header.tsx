@@ -10,6 +10,7 @@ declare global {
     ethereum?: any;
   }
 }
+
 export default function Header() {
   const { handleWallet, web3State } = useWeb3Context();
   const { selectedAccount } = web3State;
