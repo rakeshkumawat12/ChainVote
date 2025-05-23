@@ -4,15 +4,20 @@ import { useWeb3Context } from "@/context/useWeb3Context";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
+type Poll = {
+  name: string;
+  startTime: number;
+  endTime: number;
+  creator: string;
+};
+
 export default function Home() {
   const { web3State } = useWeb3Context();
   const { contractInstance, selectedAccount } = web3State;
 
-  const [searchPoll, setSearchPoll] = useState("");
+  const [searchPoll, setSearchPoll] = useState<string>("");
 
-  const [polls, setPolls] = useState<
-    { name: string; startTime: number; endTime: number; creator: string }[]
-  >([]);
+  const [polls, setPolls] = useState<Poll[]>([]);
 
   const filteredPolls = polls.filter((poll) =>
     poll.name.toLowerCase().includes(searchPoll.toLowerCase())
@@ -23,7 +28,7 @@ export default function Home() {
       const [names, startTimes, endTimes, creators] =
         await contractInstance.getAllPollsMetadata();
 
-      const formatted = names.map((name: string, index: number) => ({
+      const formatted:Poll[] = names.map((name: string, index: number) => ({
         name,
         startTime: Number(startTimes[index]),
         endTime: Number(endTimes[index]),

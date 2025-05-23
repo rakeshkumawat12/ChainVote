@@ -21,8 +21,9 @@ const Web3Provider = ({ children }: Web3ProviderProps) => {
 
   const handleWallet = async () => {
     try {
-        const { contractInstance, selectedAccount, chainId, signer, provider } = await getWeb3State();
-      
+      const { contractInstance, selectedAccount, chainId, signer, provider } =
+        await getWeb3State();
+
       setWeb3State({
         contractInstance,
         selectedAccount,

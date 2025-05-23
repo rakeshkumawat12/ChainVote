@@ -3,16 +3,29 @@ import { useParams } from "next/navigation";
 import { useWeb3Context } from "@/context/useWeb3Context";
 import { useEffect, useState } from "react";
 
+type Poll = {
+  name: string;
+  startTime: number;
+  endTime: number;
+  creator: string;
+};
+
+type Candidate = {
+  name: string;
+};
+
+
 export default function PollDetail() {
-  const { pollId } = useParams();
-  const { web3State } = useWeb3Context();
+const params = useParams() as { pollId: string };
+  const pollId = params?.pollId;
+    const { web3State } = useWeb3Context();
   const { contractInstance, selectedAccount } = web3State;
 
-  const [poll, setPoll] = useState<any>(null);
-  const [candidates, setCandidates] = useState<any[]>([]);
-  const [hasVoted, setHasVoted] = useState(false);
+  const [poll, setPoll] = useState<Poll | null>(null);
+  const [candidates, setCandidates] = useState<Candidate[]>([]);
+  const [hasVoted, setHasVoted] = useState<boolean>(false);
   const [winner, setWinner] = useState<string | null>(null);
-  const [isVoting, setIsVoting] = useState(false);
+  const [isVoting, setIsVoting] = useState<boolean>(false);
 
 
   const fetchPollDetails = async () => {
@@ -28,9 +41,9 @@ export default function PollDetail() {
         endTime: Number(endTime),
         creator,
       });
-      setCandidates(fetchedCandidates);
+      setCandidates(fetchedCandidates as Candidate[]);
 
-      const voted = await contractInstance.hasUserVoted(pollId, selectedAccount);
+      const voted: boolean = await contractInstance.hasUserVoted(pollId, selectedAccount);
 
       setHasVoted(voted);
     } catch (error) {
@@ -54,7 +67,7 @@ export default function PollDetail() {
 
    const fetchWinner = async () => {
     try {
-      const [name] = await contractInstance.getWinner(pollId);
+      const [name]: [string] = await contractInstance.getWinner(pollId);
       setWinner(name);
     } catch (err) {
       console.error("Error fetching winner:", err);

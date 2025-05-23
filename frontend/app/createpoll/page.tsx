@@ -4,10 +4,10 @@ import { useWeb3Context } from "@/context/useWeb3Context";
 import { useState } from "react";
 
 export default function CreatePoll() {
-  const [title, setTitle] = useState("");
-  const [options, setOptions] = useState(["", ""]);
-  const [duration, setDuration] = useState(1);
-  const [loading, setLoading] = useState(false);
+  const [title, setTitle] = useState<string>("");
+  const [options, setOptions] = useState<string[]>(["", ""]);
+  const [duration, setDuration] = useState<number>(1);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const { web3State } = useWeb3Context();
   const { contractInstance, selectedAccount } = web3State;

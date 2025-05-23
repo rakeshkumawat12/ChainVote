@@ -1,7 +1,5 @@
 # ChainVote - Decentralized Voting & Polling DApp
 
-## About The Project
-
 **ChainVote** is a decentralized voting and polling application built on blockchain technology, designed such a way to ensure transparency, security, and immutability in the voting process. It eliminates the risks of centralized systems like manipulation, fraud, and lack of transparency by leveraging smart contracts and decentralized networks like ETH.
 
 ## Live Demo
