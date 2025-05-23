@@ -6,9 +6,12 @@ import { useRouter } from "next/navigation";
 
 declare global {
   interface Window {
-    ethereum?: any;
+    ethereum?: {
+      request: (args: { method: string }) => Promise<any>;
+      on?: (eventName: string, callback: (...args: any[]) => void) => void;
+    };
   }
-}
+} 
 
 export default function Header() {
   const { handleWallet, web3State } = useWeb3Context();
