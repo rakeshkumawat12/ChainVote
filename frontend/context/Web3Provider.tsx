@@ -3,8 +3,6 @@
 import { useEffect, useState } from "react";
 import { Web3Context } from "./Web3Context";
 import { getWeb3State } from "@/utils/getWeb3State";
-import { handleAccountChange } from "@/utils/handleAccountChange";
-import { handleChainChange } from "@/utils/handleChainChange";
 
 type Web3ProviderProps = {
   children: React.ReactNode;

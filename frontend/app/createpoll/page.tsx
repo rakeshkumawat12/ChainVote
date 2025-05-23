@@ -10,7 +10,7 @@ export default function CreatePoll() {
   const [loading, setLoading] = useState<boolean>(false);
 
   const { web3State } = useWeb3Context();
-  const { contractInstance, selectedAccount } = web3State;
+  const { contractInstance } = web3State;
 
   const handleCreatePoll = async () => {
     try {

@@ -28,7 +28,7 @@ export default function Home() {
       const [names, startTimes, endTimes, creators] =
         await contractInstance.getAllPollsMetadata();
 
-      const formatted:Poll[] = names.map((name: string, index: number) => ({
+      const formatted: Poll[] = names.map((name: string, index: number) => ({
         name,
         startTime: Number(startTimes[index]),
         endTime: Number(endTimes[index]),

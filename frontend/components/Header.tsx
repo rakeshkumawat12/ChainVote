@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useWeb3Context } from "@/context/useWeb3Context";
 import { useRouter } from "next/navigation";
 
