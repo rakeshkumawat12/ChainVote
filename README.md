@@ -1,13 +1,13 @@
-#ChainVote - Decentralized Voting & Polling DApp
+# ChainVote - Decentralized Voting & Polling DApp
 
-##About The Project
+## About The Project
 
 **ChainVote** is a decentralized voting and polling application built on blockchain technology, designed such a way to ensure transparency, security, and immutability in the voting process. It eliminates the risks of centralized systems like manipulation, fraud, and lack of transparency by leveraging smart contracts and decentralized networks like ETH.
 
-##Live Demo
+## Live Demo
 [LINK]
 
-##Key Features
+## Key Features
 
 1. **Decentralized Governance:** Votes are recorded on-chain and the system does not rely on any central admin to manage elections or polls.
 2. **Immutable Records:** Once cast, votes cannot be altered or revert back, ensuring trust in election results.
@@ -16,7 +16,7 @@
 5. **Smart Contract Automation:** Automates poll creation, voting deadlines, result calculation, and more without human intervention.
 6. **Token or Wallet-Based Access:** Voter eligibility can be controlled using wallet address whitelisting or governance tokens.
 
-##Use Cases
+## Use Cases
 
 - DAO Governance Voting
 - College/University Elections
@@ -24,7 +24,7 @@
 - Transparent NGO or Trust Decision-Making
 - Corporate Board or Shareholder Reaction
 
-##Built With
+## Built With
 
 - Frontend framework: Next.js
 - Smart contracts: Solidity
@@ -33,11 +33,11 @@
 - Ethereum development environment: Foundry
 - Wallet: Metamask (Eth sepolia)
 
-##Getting Started
+## Getting Started
 
 To get this application up and and running on your local machine follow these simple steps.
 
-##Prerequisites
+## Prerequisites
 
 You need to have Node.js and foundry installed on your computer, before running this project.
 
@@ -47,7 +47,7 @@ Additionally, check you have access to the sepolia testnet:
 - Request Sepolia ETH from a Sepolia faucet (https://cloud.google.com/application/web3/faucet/ethereum/sepolia)
 - You can also use Alchemy or Infura to get a Sepolia RPC URL for deployment
 
-##Installation
+## Installation
 
 1. Clone the repo
 
@@ -79,7 +79,7 @@ Additionally, check you have access to the sepolia testnet:
 
 5. Open the app in your browser at http://localhost:3000/
 
-##Contributing
+## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
