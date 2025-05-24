@@ -1,8 +1,17 @@
 import { ethers } from "ethers";
 import abi from "@/constant/abi.json";
 
+const isMobileDevice = () => {
+  return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+};
+
 export const getWeb3State:any = async () => {
   try {
+    if (isMobileDevice()) {
+      alert("Please open this DApp on a desktop browser with MetaMask installed.");
+      return;
+    }
+    
     if (!window.ethereum) {
       alert("Metamask is not installed");
       return;
@@ -20,7 +29,7 @@ export const getWeb3State:any = async () => {
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
 
-    const contractAddress = "0x7F8a55B58b2cC0DAB50B3c6396165c4E30F0dE1b"; 
+    const contractAddress = "0xF43D17eD3869219401520CEBC5EbEBE40d45f763"; // Replace with your contract address
 
     const message =
       "Welcome to ChainVote Dapp. You accept our terms and condition.";

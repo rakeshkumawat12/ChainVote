@@ -24,7 +24,7 @@
 
 ## Built With
 
-- Frontend framework: Next.js
+- Frontend framework: Next.js with Typescript
 - Smart contracts: Solidity
 - Ethereum web client library: Ethers.js
 - CSS Framework: TailwindCSS
