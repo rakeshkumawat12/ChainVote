@@ -3,7 +3,7 @@
 **ChainVote** is a decentralized voting and polling application built on blockchain technology, designed such a way to ensure transparency, security, and immutability in the voting process. It eliminates the risks of centralized systems like manipulation, fraud, and lack of transparency by leveraging smart contracts and decentralized networks like ETH.
 
 ## Live Demo
-[![Watch the demo](frontend/Thumbnail.png)](https://youtu.be/6YOq4vNE0yY?si=z-KpHKtLFj48bt3k )
+[![Watch the demo](frontend/Thumbnail.png)](https://youtu.be/6YOq4vNE0yY?si=z-KpHKtLFj48bt3k)
 
 ## Key Features
 
